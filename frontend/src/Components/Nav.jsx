@@ -27,7 +27,7 @@ export default class Nave extends Component {
         <Navbar bg="dark" variant="dark">
           <Nav className="mr-auto">
             <Navbar.Brand>GYM</Navbar.Brand>
-            <Nav.Link as={Link} to="/">
+            <Nav.Link as={Link} to="/Welcome">
               Home
             </Nav.Link>
           </Nav>

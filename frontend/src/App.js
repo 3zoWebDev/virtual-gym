@@ -122,7 +122,7 @@ export default class App extends Component {
         <Switch>
 
           {/* This route needs exact so we dont get stuck viewing just this page */}
-          <Route exact path="/" component={Welcome} />
+          <Route exact path="/Welcome" component={Welcome} />
 
 
           <PrivateRoute
