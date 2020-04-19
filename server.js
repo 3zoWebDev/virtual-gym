@@ -16,8 +16,8 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 
-//The Routes
-app.use('/user'  ,  require('./route/user.route'));
+//The Routes for The API
+app.use('/api/users/'  ,  require('./route/user.route'));
 // app.use('/admin' , require('./route/admin.route'));
 // app.use('/class' , require('./route/class.route'));
 

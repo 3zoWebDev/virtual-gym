@@ -3,7 +3,7 @@ const User = require("../models/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const isLoggedIn = require("../config/config");
-// user/register
+// api/users/register
 router.post("/signup", async (req, res) => {
     let { name, email, password } = req.body;
 
@@ -19,7 +19,7 @@ router.post("/signup", async (req, res) => {
 
   });
 
-  // user/login
+  // api/users/login
   router.post("/login", async (req, res) => {
     let { email, password } = req.body;
 
@@ -59,8 +59,8 @@ router.post("/signup", async (req, res) => {
     }
   });
 
-  // /user
-  router.get("/", isLoggedIn, async (req, res) => {
+  // /api/users/
+  router.get("/user", isLoggedIn, async (req, res) => {
     // console.log(req.user);
 
     try {
@@ -74,8 +74,8 @@ router.post("/signup", async (req, res) => {
     }
   });
 
-  // user/update
-  router.put("/update", isLoggedIn, async (req, res) => {
+  // /api/users/user/update
+  router.put("/user/update", isLoggedIn, async (req, res) => {
     console.log(req.user);
     console.log(req.body);
     let inputUser = { ...req.body };
