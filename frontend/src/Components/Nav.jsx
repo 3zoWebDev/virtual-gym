@@ -18,12 +18,13 @@ export default class Nave extends Component {
           Login
         </Nav.Link>
         <Nav.Link as={Link} to="/signup">
-          SignUp
+          Sign Up
         </Nav.Link>
       </>
     );
     return (
       <div>
+        {/*  style={{ backgroundColor: "hsla(0, 0%, 0%, 0)" }} */}
         <Navbar bg="dark" variant="dark">
           <Nav className="mr-auto">
             <Navbar.Brand>GYM</Navbar.Brand>
@@ -31,9 +32,7 @@ export default class Nave extends Component {
               Home
             </Nav.Link>
           </Nav>
-          <Nav>
-            {authNavDetails}
-          </Nav>
+          <Nav>{authNavDetails}</Nav>
         </Navbar>
       </div>
     );

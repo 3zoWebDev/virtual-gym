@@ -9,9 +9,10 @@ import { Alert } from "react-bootstrap";
 import axios from "axios";
 import PrivateRoute from "./PrivateRoute";
 import Signup from "./Components/User/Signup";
-import UpdateProfile from "./Components/User/UpdateProfile"
+import UpdateProfile from "./Components/User/UpdateProfile";
+import classes from "./Components/BackgroundVideo.module.css";
+import Footer from "./Components/Footer";
 // import ErrorPage from "./ErrorPage";
-
 
 export default class App extends Component {
   state = {
@@ -22,7 +23,10 @@ export default class App extends Component {
 
   loginHandler = async (cred) => {
     try {
-      let data = await axios.post("http://localhost:5000/api/users/login", cred);
+      let data = await axios.post(
+        "http://localhost:5000/api/users/login",
+        cred
+      );
       /* Set token if login is successful only */
       localStorage.setItem("token", data.data.token);
 
@@ -120,10 +124,8 @@ export default class App extends Component {
         <Nave user={user} logout={this.logoutHandler} />
         {errorMessage}
         <Switch>
-
           {/* This route needs exact so we dont get stuck viewing just this page */}
           <Route exact path="/Welcome" component={Welcome} />
-
 
           <PrivateRoute
             exact
@@ -137,18 +139,19 @@ export default class App extends Component {
           <Route path="/signup" component={Signup} />
 
           <Route
-              path="/login"
-              render={() =>
-                isAuth ? (
-                  <Redirect to="/Welcome" />
-                ) : (
-                  <Login login={this.loginHandler} />
-                )
-              }
-           />
+            path="/login"
+            render={() =>
+              isAuth ? (
+                <Redirect to="/Welcome" />
+              ) : (
+                <Login login={this.loginHandler} />
+              )
+            }
+          />
           {/* catch all routes that dont match  */}
           {/* <Route path="*" component={ErrorPage} /> */}
         </Switch>
+        <Footer />
       </div>
     );
   }
