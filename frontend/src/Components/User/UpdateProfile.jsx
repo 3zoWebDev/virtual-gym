@@ -1,45 +1,48 @@
 import React, { Component } from "react";
 import { Form, Container, Button } from "react-bootstrap";
-import axios from "axios";
 
-export default class Signup extends Component {
-  state = {};
-
-  registerHandler = async () => {
-    try {
-      let data = await axios.post(
-        "http://localhost:5000/api/users/signup",
-        this.state
-      ).then(res => {
-        this.props.history.push('/login')
-      })
-     }
-     catch(err) { console.log(err) }
-}
+export default class UpdateProfile extends Component {
+  state = {
+    user: this.props.user, //set props from router to state so as to have a controlled form
+  };
+  update = () => {
+    this.props.update(this.state.user);
+  };
 
   changeHandler = (e) => {
     // console.log("name of field", e.target["name"]);
     // console.log("value of field", e.target.value);
     let temp = { ...this.state }; //copy state object
-    temp[e.target.name] = e.target.value;
+    temp.user[e.target.name] = e.target.value;
     this.setState(temp);
   };
 
   render() {
-    console.log(this.state);
+    console.log(this.state.user);
+
+    let { user } = this.state;
     return (
       <div>
         <Container>
           <Form.Group>
             <Form.Label>Name</Form.Label>
-            <Form.Control name="name" onChange={this.changeHandler} />
+            <Form.Control
+              name="name"
+              onChange={this.changeHandler}
+              value={user.name}
+            />
           </Form.Group>
-
 
           <Form.Group>
             <Form.Label>Email</Form.Label>
-            <Form.Control name="email" onChange={this.changeHandler} />
+            <Form.Control
+              name="email"
+              onChange={this.changeHandler}
+              value={user.email}
+            />
           </Form.Group>
+
+
           <Form.Group>
             <Form.Label>Password</Form.Label>
             <Form.Control
@@ -48,8 +51,8 @@ export default class Signup extends Component {
               onChange={this.changeHandler}
             />
           </Form.Group>
-          <Button variant="primary" onClick={this.registerHandler} block>
-            SignUp
+          <Button variant="primary" onClick={this.update} block>
+            Update
           </Button>
         </Container>
       </div>
