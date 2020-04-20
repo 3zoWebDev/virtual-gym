@@ -125,7 +125,7 @@ export default class App extends Component {
         {errorMessage}
         <Switch>
           {/* This route needs exact so we dont get stuck viewing just this page */}
-          <Route exact path="/Welcome" component={Welcome} />
+          <Route exact path="/" component={Welcome} />
 
           <PrivateRoute
             exact
@@ -142,7 +142,7 @@ export default class App extends Component {
             path="/login"
             render={() =>
               isAuth ? (
-                <Redirect to="/Welcome" />
+                <Redirect to="/" />
               ) : (
                 <Login login={this.loginHandler} />
               )
