@@ -25,6 +25,8 @@ app.use("/admin", require("./route/admin.route"));
 // app.use("/api/class", require("./route/class.route"));
 app.use("/api/class", require("./route/class.route"));
 
+//admin
+app.use('/adminbro', require('./admin'))
 app.get("*", (req, res) =>
   res.json({ error: "Are you lost?", status: 404 }).status(404)
 );

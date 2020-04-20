@@ -134,10 +134,10 @@ export default class App extends Component {
           {/* This route needs exact so we dont get stuck viewing just this page */}
           <Route exact path="/" component={Welcome} />
           <Route exact path="/ClassList" component={ClassList} />
-          <Route exact path="/AddClass" component={AddClass} />
+          {/* <Route exact path="/AddClass" component={AddClass} />
           <Route exact path="/DeleteClass/:id" component={DeleteClass} />
-          <Route exact path="/EditClass/:id" component={EditClass} />
-          
+          <Route exact path="/EditClass/:id" component={EditClass} /> */}
+
 
           <PrivateRoute
             exact
@@ -155,7 +155,8 @@ export default class App extends Component {
             render={() =>
               isAuth ? <Redirect to="/" /> : <Login login={this.loginHandler} />
             }
-          />
+           />
+
           <Route exact path="/addtrainer" component={AddTrainer} />
           {/* <Route path="Live" component={LiveClass} /> */}
           {/* catch all routes that dont match  */}
