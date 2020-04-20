@@ -6,8 +6,9 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 let PORT = process.env.PORT || 5000;
 
+
 mongoose
-  .connect("mongodb://localhost/virtualgym", {
+  .connect(process.env.MONGODB, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   })
@@ -20,7 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 
 //The Routes for The API
 app.use("/api/users/", require("./route/user.route"));
-// app.use('/admin' , require('./route/admin.route'));
+app.use("/admin", require("./route/admin.route"));
 // app.use("/api/class", require("./route/class.route"));
 app.use("/api/class", require("./route/class.route"));
 

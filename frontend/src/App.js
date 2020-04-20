@@ -17,6 +17,8 @@ import AddClass from './Components/Admin/AddClass';
 import DeleteClass from './Components/Admin/DeleteClass';
 import EditClass from './Components/Admin/EditClass';
 
+import AddTrainer from "./Components/Admin/AddTrainer";
+// import LiveClass from "./Components/Class/LiveClass";
 // import ErrorPage from "./ErrorPage";
 
 export default class App extends Component {
@@ -130,11 +132,13 @@ export default class App extends Component {
         {errorMessage}
         <Switch>
           {/* This route needs exact so we dont get stuck viewing just this page */}
-          <Route exact path="/Welcome" component={Welcome} />
+          <Route exact path="/" component={Welcome} />
           <Route exact path="/ClassList" component={ClassList} />
           <Route exact path="/AddClass" component={AddClass} />
           <Route exact path="/DeleteClass/:id" component={DeleteClass} />
           <Route exact path="/EditClass/:id" component={EditClass} />
+          
+
           <PrivateRoute
             exact
             path="/updateprofile"
@@ -149,13 +153,11 @@ export default class App extends Component {
           <Route
             path="/login"
             render={() =>
-              isAuth ? (
-                <Redirect to="/Welcome" />
-              ) : (
-                <Login login={this.loginHandler} />
-              )
+              isAuth ? <Redirect to="/" /> : <Login login={this.loginHandler} />
             }
           />
+          <Route exact path="/addtrainer" component={AddTrainer} />
+          {/* <Route path="Live" component={LiveClass} /> */}
           {/* catch all routes that dont match  */}
           {/* <Route path="*" component={ErrorPage} /> */}
         </Switch>
