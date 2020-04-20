@@ -3,9 +3,10 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 let PORT = process.env.PORT || 5000;
+require("dotenv").config();
 
 mongoose
-  .connect("mongodb://localhost/virtualgym", {
+  .connect(process.env.MONGODB, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   })
