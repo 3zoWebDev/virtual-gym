@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./BackgroundVideo.module.css";
 import videoSource from "../Components/training3.mp4";
+import {NavLink} from "react-router-dom";
 // import LiveClass from "./Class/LiveClass";
 
 const Welcome = () => {
@@ -16,9 +17,16 @@ const Welcome = () => {
           <div className={classes.SubContent}>
             <h1>WELCOME TO OUR V-GYM</h1>
             <p>Stay HOME. Stay SAFE. Stay FIT with our live classes</p>
-            <button type="button" className="btn btn-outline-dark">
+            {/* <button type="button" className="btn btn-outline-dark">
               View Classes
-            </button>
+            </button> */}
+                <NavLink
+                  to={`/ClassList`}
+                  className="btn btn-warning btn-block mb-3"
+                  variant="outline-danger"
+                >
+                  View Classes
+                </NavLink>
           </div>
         </div>
       </div>

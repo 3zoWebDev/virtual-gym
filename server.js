@@ -1,9 +1,11 @@
+
 const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
-let PORT = process.env.PORT || 5000;
 require("dotenv").config();
+let PORT = process.env.PORT || 5000;
+
 
 mongoose
   .connect(process.env.MONGODB, {
@@ -21,5 +23,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/api/users/", require("./route/user.route"));
 app.use("/admin", require("./route/admin.route"));
 // app.use("/api/class", require("./route/class.route"));
+app.use("/api/class", require("./route/class.route"));
 
+app.get("*", (req, res) =>
+  res.json({ error: "Are you lost?", status: 404 }).status(404)
+);
 app.listen(PORT, () => console.log(`server run on ${PORT}`));
