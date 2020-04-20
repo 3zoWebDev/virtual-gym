@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Col, Card } from "react-bootstrap";
+import { Col, Card,Row } from "react-bootstrap";
+import {NavLink} from "react-router-dom";
 export default class ClassCard extends Component {
     render() {
-        let {class_title,class_type,trainer,duration,startAt,date,description,image  } = this.props.class;
+        let {class_title,class_type,trainer,duration,startAt,date,description,image,_id } = this.props.class;
         return (
           <Col md={3} className="m-2">
             <Card>
@@ -13,17 +14,34 @@ export default class ClassCard extends Component {
                 src={image}
               />
               <Card.Body>
-                <Card.Title className={"text-center"}>{class_title}</Card.Title>
-                <Card.Text>{trainer}</Card.Text>
-                <Card.Text>{description}</Card.Text>
-                <Card.Text>{class_type} </Card.Text>
-                {/* <NavLink
-                  to={`/L/${_id}`}
+        <Card.Title className={"text-center"}>{class_title} - {duration} Minutes</Card.Title>
+        <Card.Text style={{paddingLeft:"20px"}}>{description}</Card.Text>
+                {/* <Card.Text style={{paddingLeft:"20px"}}></Card.Text> */}
+                <Card.Text style={{paddingLeft:"20px", color:'rgb(28, 58, 117)', textDecoration: "double"}}>live start on  :{date} at {startAt} clock </Card.Text>
+                <Row>
+                <NavLink
+                  to={`/DeleteClass/${_id}`}
+                  className="btn btn-warning btn-block mb-3"
+                  variant="outline-danger"
+                >
+                  Delete
+                </NavLink>
+                <NavLink
+                  to={`/EditClass/${_id}`}
+                  className="btn btn-warning btn-block mb-3"
+                  variant="outline-success"
+                >
+                  Edit
+                </NavLink>
+                </Row>
+                <NavLink
+                  to={"/"}
                   className="btn btn-warning btn-block mb-3"
                   variant="outline-warning"
                 >
-                  go life
-                </NavLink> */}
+                  Go Live
+                </NavLink>
+
               </Card.Body>
             </Card>
           </Col>

@@ -14,6 +14,9 @@ import classes from "./Components/BackgroundVideo.module.css";
 import Footer from "./Components/Footer";
 import ClassList from './Components/Class/ClassList';
 import AddClass from './Components/Admin/AddClass';
+import DeleteClass from './Components/Admin/DeleteClass';
+import EditClass from './Components/Admin/EditClass';
+
 // import ErrorPage from "./ErrorPage";
 
 export default class App extends Component {
@@ -130,6 +133,8 @@ export default class App extends Component {
           <Route exact path="/Welcome" component={Welcome} />
           <Route exact path="/ClassList" component={ClassList} />
           <Route exact path="/AddClass" component={AddClass} />
+          <Route exact path="/DeleteClass/:id" component={DeleteClass} />
+          <Route exact path="/EditClass/:id" component={EditClass} />
           <PrivateRoute
             exact
             path="/updateprofile"

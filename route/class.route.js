@@ -40,6 +40,18 @@ router.get("/listClass",(req, res)=>{
     })
 })
 
+router.get("/edit/:id", (req, res) => {
+    Class.findById(req.params.id, function (err, resultOneClass) {
+        if (err) {
+            console.log(err);
+            res.send(500, {error: err});
+        }
+        res.json({message:"success", resultOneClass }).status(200);
+    });
+});
+
+
+
 router.delete("/delete/:id", (req, res) => {
     console.log("on delete enterrr ...")
     Class.findByIdAndDelete(req.params.id).then(classObject => {

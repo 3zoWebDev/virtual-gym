@@ -39,12 +39,13 @@ componentDidMount() {
       <h1>All Classes</h1>
       {/* {All} */}
       <Container className="mt-5" fluid>
-          <Row className="mt-5 justify-content-center">
-            <Col md={4}>
-            {All}
+          {/* <Row className="mt-5 justify-content-center">
+            <Col md={12}>
+            
             </Col>
-          </Row>
+          </Row> */}
           <Row className="mt-5 justify-content-center">
+          {All}
           </Row>
         </Container>
 

@@ -94,7 +94,10 @@ export default class ClassList extends Component {
     Submit
   </Button>
 </Card> */}
-          <Container>
+
+
+
+          {/* <Container>
           <Form.Group>
             <Form.Label>class title:</Form.Label>
             <Form.Control name="class_title" onChange={this.changeHandler} />
@@ -139,7 +142,48 @@ export default class ClassList extends Component {
           <Button variant="primary" onClick={this.registerHandler} block>
             Add Class 
           </Button>
-        </Container>
+        </Container> */}
+
+
+
+<Card>
+  <Card.Body><Container className="m-0" style={{  borderRadius: "30px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <Form.Group>
+            <Form.Label>class Title:</Form.Label>
+            <Form.Control name="class_title" onChange={this.changeHandler} />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Trainer :</Form.Label>
+            <Form.Control name="trainer" onChange={this.changeHandler} />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>duration:</Form.Label>
+            <Form.Control name="duration" onChange={this.changeHandler} />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>StartAt:</Form.Label>
+            <Form.Control name="startAt" onChange={this.changeHandler} />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Date:</Form.Label>
+            <Form.Control name="date" onChange={this.changeHandler} />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Description:</Form.Label>
+            <Form.Control name="description" onChange={this.changeHandler} />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Image:</Form.Label>
+            <Form.Control name="image" onChange={this.changeHandler} />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>class Type:</Form.Label>
+            <Form.Control name="class_type" onChange={this.changeHandler} />
+          </Form.Group>
+          <Button variant="outline-success" style={{ width: 100 }} onClick={this.registerHandler} block> Add Class </Button>
+          <Button variant="outline-danger" style={{ignItems: "right",width: 100 }} onClick={this.registerHandler} block> Delete</Button>
+           </Container></Card.Body>
+</Card>
             </div>
         )
     }
