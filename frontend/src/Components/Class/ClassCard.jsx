@@ -19,7 +19,7 @@ export default class ClassCard extends Component {
                 {/* <Card.Text style={{paddingLeft:"20px"}}></Card.Text> */}
                 <Card.Text style={{paddingLeft:"20px", color:'rgb(28, 58, 117)', textDecoration: "double"}}>live start on  :{date} at {startAt} clock </Card.Text>
                 <Row>
-                <NavLink
+                {/* <NavLink
                   to={`/DeleteClass/${_id}`}
                   className="btn btn-warning btn-block mb-3"
                   variant="outline-danger"
@@ -32,7 +32,7 @@ export default class ClassCard extends Component {
                   variant="outline-success"
                 >
                   Edit
-                </NavLink>
+                </NavLink> */}
                 </Row>
                 <NavLink
                   to={"/"}
