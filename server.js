@@ -1,33 +1,30 @@
-//Server
-require("dotenv").config();
 
-//=================
 const express = require("express");
-const cors = require("cors");
 const app = express();
-const PORT = 9000;
+const cors = require("cors");
 const mongoose = require("mongoose");
-// middlewares npm i cors
-// ===============
+require("dotenv").config();
+let PORT = process.env.PORT || 5000;
+
+mongoose
+  .connect("mongodb://localhost/virtualgym", {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+  })
+  .then((res) => console.log("mongodb is connected"))
+  .catch((err) => console.log(err));
+
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-//--mongodb connection
-mongoose.connect(
-    "mongodb://localhost/officefullstack",
-    { useNewUrlParser: true, useUnifiedTopology: true },
-    () => {
-      console.log("mongodb connected!");
-    }
-  );
-// Routes for API
-//===================
-app.use("/class", require("./route/class.route"));
+//The Routes for The API
+app.use("/api/users/", require("./route/user.route"));
+// app.use('/admin' , require('./route/admin.route'));
+// app.use("/api/class", require("./route/class.route"));
+app.use("/api/class", require("./route/class.route"));
 
 app.get("*", (req, res) =>
   res.json({ error: "Are you lost?", status: 404 }).status(404)
 );
-
-app.listen(PORT, () =>
-  console.log(`unleashed on ${PORT}`)
-);
+app.listen(PORT, () => console.log(`server run on ${PORT}`));

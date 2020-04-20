@@ -15,7 +15,7 @@ export default class ClassList extends Component {
   registerHandler = async () => {
     try {
       let data = await axios.post(
-        "http://localhost:9000/class/addClass",
+        "http://localhost:5000/api/class/addClass",
         this.state
       );
       console.log(data);
@@ -23,6 +23,19 @@ export default class ClassList extends Component {
       console.log(err);
     }
   };
+
+  // deleteHandler = async () => {
+  //   try {
+  //     let data = await axios.delete(
+  //       `http://localhost:5000/api/class/delete/${this.props.match.params.id}`,
+  //       this.state
+  //     );
+  //     console.log(data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+
 
   changeHandler = (e) => {
     // console.log("name of field", e.target["name"]);
@@ -34,53 +47,54 @@ export default class ClassList extends Component {
     render() {
         return (
             <div>
-               {/* <Card style={{ width: '18rem' }}></Card> */}
+               {/* <Card style={{ width: '18rem' }}></Card>
               <Card className="m-2" border="secondary"  style={{ width: '18rem', borderRadius: "30px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+
   <Form.Group controlId="formBasicText">
     <Form.Label>Class Title</Form.Label>
-    <Form.Control name="class_title" type="Steing" placeholder="Enter Class Title" />
+    <Form.Control name="class_title"  placeholder="Enter Class Title" onChange={this.changeHandler}/>
   </Form.Group>
 
   <Form.Group controlId="formBasicText">
     <Form.Label>Trainer</Form.Label>
-    <Form.Control name="trainer" type="Steing" placeholder="Enter Trainer" />
+    <Form.Control name="trainer"  placeholder="Enter Trainer" onChange={this.changeHandler} />
   </Form.Group>
 
   <Form.Group controlId="formBasicText">
     <Form.Label>Start At :</Form.Label>
-    <Form.Control name="startAt" type="Steing" placeholder="Enter Start time" />
+    <Form.Control name="startAt"  placeholder="Enter Start time"  onChange={this.changeHandler}/>
   </Form.Group>
 
   <Form.Group controlId="formBasicText">
     <Form.Label>image :</Form.Label>
-    <Form.Control  name="image" type="Steing" placeholder="Enter image" />
+    <Form.Control  name="image"  placeholder="Enter image" onChange={this.changeHandler} />
   </Form.Group>
 
   <Form.Group controlId="formBasicText">
     <Form.Label>Duration</Form.Label>
-    <Form.Control name="duration"  type="Steing" placeholder="Enter Duration" />
+    <Form.Control name="duration"   placeholder="Enter Duration" onChange={this.changeHandler}/>
   </Form.Group>
 
   <Form.Group controlId="formBasicText">
     <Form.Label>Date</Form.Label>
-    <Form.Control name="date" type="Steing" placeholder="Enter Date" />
+    <Form.Control name="date" placeholder="Enter Date" onChange={this.changeHandler}/>
   </Form.Group>
 
   <Form.Group controlId="formBasicText">
     <Form.Label>Class Type</Form.Label>
-    <Form.Control name="class_type" type="Steing" placeholder="Enter class type" />
+    <Form.Control name="class_type"  placeholder="Enter class type" onChange={this.changeHandler} />
   </Form.Group>
 
   <Form.Group controlId="formBasicText">
     <Form.Label>Description</Form.Label>
-    <Form.Control name="description" type="Steing" placeholder="Enter Description" />
+    <Form.Control name="description"  placeholder="Enter Description" onChange={this.changeHandler} />
   </Form.Group>
 
-  <Button variant="primary" type="submit">
+  <Button variant="primary" type="submit" onClick={this.registerHandler}>
     Submit
   </Button>
-</Card>
-          {/* <Container>
+</Card> */}
+          <Container>
           <Form.Group>
             <Form.Label>class title:</Form.Label>
             <Form.Control name="class_title" onChange={this.changeHandler} />
@@ -125,7 +139,7 @@ export default class ClassList extends Component {
           <Button variant="primary" onClick={this.registerHandler} block>
             Add Class 
           </Button>
-        </Container> */}
+        </Container>
             </div>
         )
     }

@@ -12,9 +12,9 @@ export default class ClassList extends Component {
 
 componentDidMount() {
 
-    axios.get('http://localhost:9000/class/listClass')
+    axios.get('http://localhost:5000/api/class/listClass')
         .then(res => {
-          // console.log(res.data)
+          console.log(res.data)
             this.setState({
                 allClass: res.data.listClass,
                 selectedClass: res.data.listClass,
@@ -28,15 +28,26 @@ componentDidMount() {
   render() {
     
     console.log(this.state.allClass)
-    let All = this.state.allClass.map((classElemnet) => (
-       <ClassCard class={classElemnet} key={classElemnet._id} />
+    let All = this.state.allClass.map((classElemnet,i) => 
+       <ClassCard class={classElemnet} id={classElemnet._id} key={i} />
       
        
-    ));
+    );
     
     return (
       <div>
       <h1>All Classes</h1>
+      {/* {All} */}
+      <Container className="mt-5" fluid>
+          <Row className="mt-5 justify-content-center">
+            <Col md={4}>
+            {All}
+            </Col>
+          </Row>
+          <Row className="mt-5 justify-content-center">
+          </Row>
+        </Container>
+
       {/* {this.state.allClass.map((classElemnet) => (
         <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src={classElemnet.image} />
