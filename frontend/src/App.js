@@ -12,6 +12,7 @@ import Signup from "./Components/User/Signup";
 import UpdateProfile from "./Components/User/UpdateProfile";
 import classes from "./Components/BackgroundVideo.module.css";
 import Footer from "./Components/Footer";
+import AddTrainer from "./Components/Admin/AddTrainer";
 // import LiveClass from "./Components/Class/LiveClass";
 // import ErrorPage from "./ErrorPage";
 
@@ -145,6 +146,7 @@ export default class App extends Component {
               isAuth ? <Redirect to="/" /> : <Login login={this.loginHandler} />
             }
           />
+          <Route exact path="/addtrainer" component={AddTrainer} />
           {/* <Route path="Live" component={LiveClass} /> */}
           {/* catch all routes that dont match  */}
           {/* <Route path="*" component={ErrorPage} /> */}
