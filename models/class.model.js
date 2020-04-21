@@ -4,7 +4,10 @@ const mongoose = require("mongoose");
 const classSchema = mongoose.Schema({
   class_title: String,
   class_type: String,
-  trainer: String,
+  trainer: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Trainer",
+  },
   duration: Number,
   startAt: String,
   date: String,

@@ -10,7 +10,11 @@ export default class Nave extends Component {
           Welcome, {this.props.user.name}
         </Nav.Link>
         {this.props.user.isAdmin ? (
-          <a className="navLink" href="http://localhost:5000/adminbro">
+          <a
+            target="_blank"
+            className="navLink"
+            href="http://localhost:5000/adminbro"
+          >
             Dashboard
           </a>
         ) : (
@@ -19,6 +23,7 @@ export default class Nave extends Component {
 
         {this.props.user.isAdmin ? (
           <a
+            target="_blank"
             className="navLink"
             href="https://studio.youtube.com/channel/UC3ljgH1h5HsQsL3ZX-eAbng/livestreaming?utm_campaign=upgrade&utm_medium=redirect&utm_source=%2Fmy_live_events"
           >
