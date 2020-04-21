@@ -1,55 +1,55 @@
-import React, { Component } from 'react'
-import { Form, Container, Button,Row ,Col,Image, Card} from "react-bootstrap";
-import ClassCard from './ClassCard'
+import React, { Component } from "react";
+import {
+  Form,
+  Container,
+  Button,
+  Row,
+  Col,
+  Image,
+  Card,
+} from "react-bootstrap";
+import ClassCard from "./ClassCard";
 import axios from "axios";
-
 
 export default class ClassList extends Component {
   state = {
-    allClass :[],
-    selectedClass:[]
-}
+    allClass: [],
+    selectedClass: [],
+  };
 
-componentDidMount() {
+  componentDidMount() {
+    axios
+      .get("http://localhost:5000/api/class/listClass")
+      .then((res) => {
+        console.log(res.data);
+        this.setState({
+          allClass: res.data.listClass,
+          selectedClass: res.data.listClass,
+        });
+      })
+      .catch((err) => console.log(err));
+  }
 
-    axios.get('http://localhost:5000/api/class/listClass')
-        .then(res => {
-          console.log(res.data)
-            this.setState({
-                allClass: res.data.listClass,
-                selectedClass: res.data.listClass,
-                  
-            })
-        }).catch(err => console.log(err))
-
-
-
-}
   render() {
-    
-    console.log(this.state.allClass)
-    let All = this.state.allClass.map((classElemnet,i) => 
-       <ClassCard class={classElemnet} id={classElemnet._id} key={i} />
-      
-       
-    );
-    
+    console.log(this.state.allClass);
+    let All = this.state.allClass.map((classElemnet, i) => (
+      <ClassCard class={classElemnet} id={classElemnet._id} key={i} />
+    ));
+
     return (
       <div>
-      <h1>All Classes</h1>
-      {/* {All} */}
-      <Container className="mt-5" fluid>
+        <h1>All Classes</h1>
+        {/* {All} */}
+        <Container className="mt-5" fluid>
           {/* <Row className="mt-5 justify-content-center">
             <Col md={12}>
             
             </Col>
           </Row> */}
-          <Row className="mt-5 justify-content-center">
-          {All}
-          </Row>
+          <Row className="mt-5 justify-content-center">{All}</Row>
         </Container>
 
-      {/* {this.state.allClass.map((classElemnet) => (
+        {/* {this.state.allClass.map((classElemnet) => (
         <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src={classElemnet.image} />
         <Card.Body>
@@ -63,7 +63,7 @@ componentDidMount() {
         </Card.Body>
       </Card>
         ))}  */}
-      {/* {this.state.allClass.map((classElemnet) => (
+        {/* {this.state.allClass.map((classElemnet) => (
         //  <p>Hello, {classElemnet.class_title} with trainer {classElemnet.trainer}</p>
         <Container>
           
@@ -84,7 +84,7 @@ componentDidMount() {
       </Container>
       ))} */}
 
-       {/* <Container className="mt-5" fluid>
+        {/* <Container className="mt-5" fluid>
           <Row className="mt-5 justify-content-center">
             <Col md={4}>
               <Form.Label>Select Type</Form.Label>
@@ -103,8 +103,7 @@ componentDidMount() {
             </Col>
           </Row>
         </Container> */}
-
-  </div >
-    )
+      </div>
+    );
   }
 }

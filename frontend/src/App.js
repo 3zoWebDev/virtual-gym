@@ -16,8 +16,8 @@ import ClassList from "./Components/Class/ClassList";
 import AddClass from "./Components/Admin/AddClass";
 import DeleteClass from "./Components/Admin/DeleteClass";
 import EditClass from "./Components/Admin/EditClass";
-import AddTrainer from "./Components/Admin/AddTrainer";
 import LiveClass from "./Components/Class/LiveClass";
+import Trainers from "./Components/Trainers";
 // import ErrorPage from "./ErrorPage";
 
 export default class App extends Component {
@@ -161,7 +161,7 @@ export default class App extends Component {
             }
           />
 
-          {/* <Route exact path="/addtrainer" component={AddTrainer} /> */}
+          <Route exact path="/Trainers" component={Trainers} />
           <Route path="/LiveClass/:id" component={LiveClass} />
           {/* catch all routes that dont match  */}
           {/* <Route path="*" component={ErrorPage} /> */}

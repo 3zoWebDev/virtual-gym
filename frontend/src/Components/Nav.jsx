@@ -50,6 +50,9 @@ export default class Nave extends Component {
             <Nav.Link as={Link} to="/">
               Home
             </Nav.Link>
+            <Nav.Link as={Link} to="/Trainers">
+              Our Trainers
+            </Nav.Link>
           </Nav>
           <Nav>{authNavDetails}</Nav>
         </Navbar>
