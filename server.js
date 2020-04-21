@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 
 //The Routes for The API
 app.use("/api/users/", require("./route/user.route"));
-app.use("/admin", require("./route/admin.route"));
+//app.use("/admin", require("./route/admin.route"));
 // app.use("/api/class", require("./route/class.route"));
 app.use("/api/class", require("./route/class.route"));
 

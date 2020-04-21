@@ -133,11 +133,16 @@ export default class App extends Component {
         <Switch>
           {/* This route needs exact so we dont get stuck viewing just this page */}
           <Route exact path="/" component={Welcome} />
-          <Route exact path="/ClassList" component={ClassList} />
+          {/* <Route exact path="/ClassList" component={ClassList} /> */}
           {/* <Route exact path="/AddClass" component={AddClass} />
           <Route exact path="/DeleteClass/:id" component={DeleteClass} />
           <Route exact path="/EditClass/:id" component={EditClass} /> */}
-
+           <PrivateRoute
+            exact
+            path="/ClassList"
+            isAuth={isAuth}
+            component={ClassList}
+          />
 
           <PrivateRoute
             exact
@@ -157,7 +162,7 @@ export default class App extends Component {
             }
            />
 
-          <Route exact path="/addtrainer" component={AddTrainer} />
+          {/* <Route exact path="/addtrainer" component={AddTrainer} /> */}
           {/* <Route path="Live" component={LiveClass} /> */}
           {/* catch all routes that dont match  */}
           {/* <Route path="*" component={ErrorPage} /> */}

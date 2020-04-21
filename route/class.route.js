@@ -50,38 +50,38 @@ router.get("/edit/:id", (req, res) => {
 
 
 // /api/class/
-router.delete("/delete/:id", (req, res) => {
-    console.log("on delete enterrr ...")
-    Class.findByIdAndDelete(req.params.id).then(classObject => {
-        console.log("on delete ...")
-        res.json({message:"success Deleting"}
-        )}).catch(error =>{
-            console.log(error)
-            res.json({ message: "unable to Delete Class" }).status(400);
-        })
-    });
-// /api/class/
-    router.put("/edit/:id", (req, res) => {
-        console.log("entering updddate method ")
-        let class_title = req.body.class_title;
-        let class_type = req.body.class_type;
-        let trainer = req.body.trainer;
-        let duration = req.body.duration;
-        let startAt = req.body.startAt;
-        let date = req.body.date;
-        let description = req.body.description;
-        let image= req.body.image;
+// router.delete("/delete/:id", (req, res) => {
+//     console.log("on delete enterrr ...")
+//     Class.findByIdAndDelete(req.params.id).then(classObject => {
+//         console.log("on delete ...")
+//         res.json({message:"success Deleting"}
+//         )}).catch(error =>{
+//             console.log(error)
+//             res.json({ message: "unable to Delete Class" }).status(400);
+//         })
+//     });
+// // /api/class/
+//     router.put("/edit/:id", (req, res) => {
+//         console.log("entering updddate method ")
+//         let class_title = req.body.class_title;
+//         let class_type = req.body.class_type;
+//         let trainer = req.body.trainer;
+//         let duration = req.body.duration;
+//         let startAt = req.body.startAt;
+//         let date = req.body.date;
+//         let description = req.body.description;
+//         let image= req.body.image;
 
 
-        Class.findByIdAndUpdate(req.params.id, {class_title, class_type, trainer,duration,startAt,date,description,image}, function (err, result) {
+//         Class.findByIdAndUpdate(req.params.id, {class_title, class_type, trainer,duration,startAt,date,description,image}, function (err, result) {
 
-            if (err) {
-                console.log(err);
-                res.send(500, {error: err});
-            }
-            res.json({message:"success Updating"})
-        });
-    });
+//             if (err) {
+//                 console.log(err);
+//                 res.send(500, {error: err});
+//             }
+//             res.json({message:"success Updating"})
+//         });
+//     });
 
 
 
