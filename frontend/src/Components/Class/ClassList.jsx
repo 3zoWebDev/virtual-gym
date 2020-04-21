@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Form, Container, Button,Row ,Col,Image, Card} from "react-bootstrap";
 import ClassCard from './ClassCard'
 import axios from "axios";
-
+import KommunicateChat from "../../ChatBot"
 export default class ClassList extends Component {
   state = {
     allClass :[],
@@ -35,7 +35,6 @@ componentDidMount() {
 
     return (
       <div>
-<<<<<<< HEAD
       <h1>All Classes</h1>
       <KommunicateChat />
       {/* {All} */}
