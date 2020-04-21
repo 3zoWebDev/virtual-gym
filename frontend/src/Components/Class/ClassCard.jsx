@@ -1,9 +1,26 @@
 import React, { Component } from "react";
 import { Col, Card, Row } from "react-bootstrap";
 import { NavLink, Link } from "react-router-dom";
-import LiveClass from "./LiveClass";
+import axios from "axios";
 
 export default class ClassCard extends Component {
+  state = {
+    found: {},
+  };
+  componentDidMount() {
+    axios
+      .get("http://localhost:5000/api/class/trainers")
+      .then((res) => {
+        console.log(res.data.trainer);
+        this.setState({
+          found: res.data.trainer.filter(
+            (element) => element._id == this.props.class.trainer
+          )[0],
+        });
+      })
+      .catch((err) => console.log(err));
+  }
+
   render() {
     let {
       class_title,
@@ -16,6 +33,7 @@ export default class ClassCard extends Component {
       image,
       _id,
     } = this.props.class;
+    // console.log(this.state.found);
     return (
       <Col md={3} className="m-2">
         <Card>
@@ -23,7 +41,7 @@ export default class ClassCard extends Component {
           <Card.Img
             style={{ height: 400, width: "100%" }}
             variant="top"
-            src={image}
+            src={`${this.state.found.image}`}
           />
           <Card.Body>
             <Card.Title className={"text-center"}>
@@ -38,6 +56,7 @@ export default class ClassCard extends Component {
                 textDecoration: "double",
               }}
             >
+              Trainer: {this.state.found.name} <br />
               live start on :{date} at {startAt} clock{" "}
             </Card.Text>
             <Row>

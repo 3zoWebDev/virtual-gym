@@ -98,7 +98,7 @@ export default function Album() {
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography gutterBottom variant="h6" component="h2">
                       {el.name}
                     </Typography>
                     <Typography>{el.description}</Typography>

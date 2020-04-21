@@ -17,18 +17,8 @@ export default class LiveClass extends Component {
             (element) => element._id == this.props.match.params.id
           )[0],
         });
-
-        if (this.state.found.liveLink == undefined) {
-          console.log("No Link");
-        }
       })
       .catch((err) => console.log(err));
-  }
-
-  checkLink() {
-    if (this.state.found.liveLink == undefined) {
-      console.log("No Link");
-    }
   }
 
   render() {
