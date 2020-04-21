@@ -16,6 +16,18 @@
   /* margin-top: 20px; */
 }
 
+.navLink {
+  text-decoration: none;
+  margin: 7px;
+  color: #9a9da0;
+  cursor: pointer;
+}
+
+a.navLink:hover {
+  text-decoration: none;
+  color: #cccecf;
+}
+
 .autoMargin {
   padding-top: 10px;
 }

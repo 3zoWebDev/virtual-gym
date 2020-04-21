@@ -4,9 +4,13 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    name:  String,
+    name: String,
     email: String,
     password: String,
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );
