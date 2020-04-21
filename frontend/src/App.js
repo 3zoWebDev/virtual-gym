@@ -18,6 +18,7 @@ import DeleteClass from "./Components/Admin/DeleteClass";
 import EditClass from "./Components/Admin/EditClass";
 import LiveClass from "./Components/Class/LiveClass";
 import Trainers from "./Components/Trainers";
+// import StickyFooter from 'react-sticky-footer';
 // import ErrorPage from "./ErrorPage";
 
 export default class App extends Component {
@@ -126,6 +127,7 @@ export default class App extends Component {
     ) : null;
 
     return (
+
       <div>
 
         <Nave user={user} logout={this.logoutHandler} />
