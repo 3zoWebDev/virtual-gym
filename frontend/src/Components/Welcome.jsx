@@ -1,8 +1,7 @@
 import React from "react";
 import classes from "./BackgroundVideo.module.css";
 import videoSource from "../Components/training3.mp4";
-import {NavLink} from "react-router-dom";
-// import LiveClass from "./Class/LiveClass";
+import { NavLink } from "react-router-dom";
 
 const Welcome = () => {
   return (
@@ -20,17 +19,16 @@ const Welcome = () => {
             {/* <button type="button" className="btn btn-outline-dark">
               View Classes
             </button> */}
-                <NavLink
-                  to={`/ClassList`}
-                  className="btn btn-warning btn-block mb-3"
-                  variant="outline-danger"
-                >
-                  View Classes
-                </NavLink>
+            <NavLink
+              to={`/ClassList`}
+              className="btn btn-warning btn-block mb-3"
+              variant="outline-danger"
+            >
+              View Classes
+            </NavLink>
           </div>
         </div>
       </div>
-      {/* <LiveClass /> */}
     </>
   );
 };

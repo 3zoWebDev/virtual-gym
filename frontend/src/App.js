@@ -12,13 +12,12 @@ import Signup from "./Components/User/Signup";
 import UpdateProfile from "./Components/User/UpdateProfile";
 import classes from "./Components/BackgroundVideo.module.css";
 import Footer from "./Components/Footer";
-import ClassList from './Components/Class/ClassList';
-import AddClass from './Components/Admin/AddClass';
-import DeleteClass from './Components/Admin/DeleteClass';
-import EditClass from './Components/Admin/EditClass';
-
+import ClassList from "./Components/Class/ClassList";
+import AddClass from "./Components/Admin/AddClass";
+import DeleteClass from "./Components/Admin/DeleteClass";
+import EditClass from "./Components/Admin/EditClass";
 import AddTrainer from "./Components/Admin/AddTrainer";
-// import LiveClass from "./Components/Class/LiveClass";
+import LiveClass from "./Components/Class/LiveClass";
 // import ErrorPage from "./ErrorPage";
 
 export default class App extends Component {
@@ -137,7 +136,7 @@ export default class App extends Component {
           {/* <Route exact path="/AddClass" component={AddClass} />
           <Route exact path="/DeleteClass/:id" component={DeleteClass} />
           <Route exact path="/EditClass/:id" component={EditClass} /> */}
-           <PrivateRoute
+          <PrivateRoute
             exact
             path="/ClassList"
             isAuth={isAuth}
@@ -160,10 +159,10 @@ export default class App extends Component {
             render={() =>
               isAuth ? <Redirect to="/" /> : <Login login={this.loginHandler} />
             }
-           />
+          />
 
           {/* <Route exact path="/addtrainer" component={AddTrainer} /> */}
-          {/* <Route path="Live" component={LiveClass} /> */}
+          <Route path="/LiveClass/:id" component={LiveClass} />
           {/* catch all routes that dont match  */}
           {/* <Route path="*" component={ErrorPage} /> */}
         </Switch>
