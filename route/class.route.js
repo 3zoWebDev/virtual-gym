@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Class = require("../models/class.model");
 const isLoggedIn = require("../config/config");
+
 router.post("/addClass", async (req, res) => {
     console.log("entering roooute")
     let { class_title,class_type,trainer,duration,startAt,date,class_titleription,image } = req.body;
@@ -50,16 +51,16 @@ router.get("/edit/:id", (req, res) => {
 
 
 // /api/class/
-// router.delete("/delete/:id", (req, res) => {
-//     console.log("on delete enterrr ...")
-//     Class.findByIdAndDelete(req.params.id).then(classObject => {
-//         console.log("on delete ...")
-//         res.json({message:"success Deleting"}
-//         )}).catch(error =>{
-//             console.log(error)
-//             res.json({ message: "unable to Delete Class" }).status(400);
-//         })
-//     });
+router.delete("/delete/:id", (req, res) => {
+    console.log("on delete enterrr ...")
+    Class.findByIdAndDelete(req.params.id).then(classObject => {
+        console.log("on delete ...")
+        res.json({message:"success Deleting"}
+        )}).catch(error =>{
+            console.log(error)
+            res.json({ message: "unable to Delete Class" }).status(400);
+        })
+    });
 // // /api/class/
 //     router.put("/edit/:id", (req, res) => {
 //         console.log("entering updddate method ")

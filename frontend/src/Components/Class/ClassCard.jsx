@@ -1,10 +1,18 @@
 import React, { Component } from 'react'
 import { Col, Card,Row } from "react-bootstrap";
 import {NavLink} from "react-router-dom";
+import Time from './Time'
+import ReactMomentCountDown from 'react-moment-countdown';
+import moment from 'moment'
 export default class ClassCard extends Component {
+
+
     render() {
+        
         let {class_title,class_type,trainer,duration,startAt,date,description,image,_id } = this.props.class;
         return (
+        <>
+        {/* <Time classDate={date} timeStart={startAt}></Time> */}
           <Col md={3} className="m-2">
             <Card>
               {/* <Image style={{ height: 150, width: 150 }} src={link} /> */}
@@ -16,8 +24,12 @@ export default class ClassCard extends Component {
               <Card.Body>
         <Card.Title className={"text-center"}>{class_title} - {duration} Minutes</Card.Title>
         <Card.Text style={{paddingLeft:"20px"}}>{description}</Card.Text>
+        <Card.Text ></Card.Text>
                 {/* <Card.Text style={{paddingLeft:"20px"}}></Card.Text> */}
                 <Card.Text style={{paddingLeft:"20px", color:'rgb(28, 58, 117)', textDecoration: "double"}}>live start on  :{date} at {startAt} clock </Card.Text>
+                
+                <ReactMomentCountDown toDate={date}/> 
+
                 <Row>
                 {/* <NavLink
                   to={`/DeleteClass/${_id}`}
@@ -45,6 +57,7 @@ export default class ClassCard extends Component {
               </Card.Body>
             </Card>
           </Col>
+          </>
         );
       }
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Form, Container, Button,Row ,Col,Image, Card} from "react-bootstrap";
 import ClassCard from './ClassCard'
 import axios from "axios";
-
+import moment from 'moment'
 
 export default class ClassList extends Component {
   state = {
@@ -26,13 +26,18 @@ componentDidMount() {
 
 }
   render() {
+    let today = new Date();
     
+    console.log(`today data ${today}`)
     console.log(this.state.allClass)
-    let All = this.state.allClass.map((classElemnet,i) => 
-       <ClassCard class={classElemnet} id={classElemnet._id} key={i} />
-      
+    let All = this.state.allClass.map((classElemnet,i) =>
+       //case 1: expire date ignored -->this is expire(today>class date)
        
-    );
+      //  console.log("moment data" +moment(classElemnet.date))
+      //  (today <= moment(classElemnet.date)) ? <ClassCard class={classElemnet} id={classElemnet._id} key={i} /> :null
+      <ClassCard class={classElemnet} id={classElemnet._id} key={i} />
+      
+      );
     
     return (
       <div>
