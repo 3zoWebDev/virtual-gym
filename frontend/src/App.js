@@ -120,7 +120,7 @@ export default class App extends Component {
   }
   render() {
     const { isAuth, message, user } = this.state;
-
+    console.log(user)
     //used to display error message from API
     const errorMessage = message ? (
       <Alert variant="danger">{message}</Alert>
@@ -128,6 +128,7 @@ export default class App extends Component {
 
     return (
       <div>
+
         <Nave user={user} logout={this.logoutHandler} />
         {errorMessage}
         <Switch>
