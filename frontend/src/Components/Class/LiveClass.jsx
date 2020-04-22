@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { NavLink, Link } from "react-router-dom";
-// import ".../App.css";
+import image from "../gym2.png";
 
 export default class LiveClass extends Component {
   state = {
@@ -24,18 +24,27 @@ export default class LiveClass extends Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>{this.state.found.class_title}</h1>
-        <NavLink
-          as={Link}
-          to={`/ClassList`}
-          className="btn btn-warning btn-block mb-3"
-          variant="outline-warning"
-        >
-          Leave Class
-        </NavLink>
+      <div className="App" style={{ height: "700px" }}>
+        <h2 style={{ margin: "40px 0" }}>
+          {this.state.found.class_title}
+          <span className="pull-right">
+            <NavLink
+              as={Link}
+              to={`/ClassList`}
+              className="btn btn-warning"
+              variant="outline-warning"
+              style={{ marginLeft: "400px" }}
+            >
+              Leave Class
+            </NavLink>
+          </span>
+        </h2>
         {this.state.found.liveLink == undefined ? (
-          <h1> No Live Link Yet! </h1>
+          <div style={{ margin: "200px 0" }}>
+            <img src={`${image}`} height="80px" width="80px" />
+            <br /> <br />
+            <h4>We Will Add Live Link As soon As Possible..</h4>
+          </div>
         ) : (
           <iframe
             width="80%"
