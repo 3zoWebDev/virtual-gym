@@ -26,7 +26,7 @@ export default class Nave extends Component {
           <a
             target="_blank"
             className="navLink"
-            href="https://studio.youtube.com/channel/UC3ljgH1h5HsQsL3ZX-eAbng/livestreaming?utm_campaign=upgrade&utm_medium=redirect&utm_source=%2Fmy_live_events"
+            href="https://studio.youtube.com/channel/UC3ljgH1h5HsQsL3ZX-eAbng/livestreaming/stream?utm_campaign=upgrade&utm_medium=redirect&utm_source=%2Fmy_live_events"
           >
             ADD LIVE
           </a>
