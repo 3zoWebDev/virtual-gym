@@ -1,1 +1,1 @@
-# virtual-gym
+# Virtual-Gym
