@@ -4,6 +4,7 @@ import ClassCard from './ClassCard'
 import axios from "axios";
 import moment from 'moment'
 
+import KommunicateChat from "../../ChatBot"
 export default class ClassList extends Component {
   state = {
     allClass :[],
@@ -18,7 +19,7 @@ componentDidMount() {
             this.setState({
                 allClass: res.data.listClass,
                 selectedClass: res.data.listClass,
-                  
+
             })
         }).catch(err => console.log(err))
 

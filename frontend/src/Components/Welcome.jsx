@@ -1,8 +1,8 @@
 import React from "react";
 import classes from "./BackgroundVideo.module.css";
 import videoSource from "../Components/training3.mp4";
-import {NavLink} from "react-router-dom";
-// import LiveClass from "./Class/LiveClass";
+import { NavLink } from "react-router-dom";
+import Feature from "./Features";
 
 const Welcome = () => {
   return (
@@ -15,22 +15,56 @@ const Welcome = () => {
 
         <div className={classes.Content}>
           <div className={classes.SubContent}>
-            <h1>WELCOME TO OUR V-GYM</h1>
-            <p>Stay HOME. Stay SAFE. Stay FIT with our live classes</p>
+            <div
+              style={{
+                textAlign: "justify",
+                color: "#ffcc00",
+                // "#ffcc00",
+                // "#ff3300",
+                //  "#cf111d"
+                letterSpacing: "5px",
+                fontWeight: "900",
+                fontSize: "60pt",
+                marginBottom: "10px",
+              }}
+            >
+              <div>STAY HOME.</div>
+              <div>STAY SAFE.</div>
+              <div>STAY FIT.</div>
+            </div>
+
+            {/* <p>Stay HOME. Stay SAFE. Stay FIT with our live classes</p> */}
             {/* <button type="button" className="btn btn-outline-dark">
               View Classes
             </button> */}
-                <NavLink
-                  to={`/ClassList`}
-                  className="btn btn-warning btn-block mb-3"
-                  variant="outline-danger"
-                >
-                  View Classes
-                </NavLink>
           </div>
         </div>
       </div>
-      {/* <LiveClass /> */}
+      <div
+        style={{
+          backgroundColor: "black",
+          height: "100px",
+          width: "100%",
+          color: "white",
+          padding: "30px",
+          textAlign: "center",
+        }}
+      >
+        <h2>
+          JOIN OUR LIVE CLASSES{" "}
+          <span className="pull-right">
+            <NavLink
+              to={`/ClassList`}
+              className="btn btn-warning"
+              variant="outline-warning"
+              style={{ marginLeft: "200px", width: "100px" }}
+            >
+              JOIN
+            </NavLink>
+          </span>
+        </h2>{" "}
+      </div>
+      <Feature />
     </>
   );
 };

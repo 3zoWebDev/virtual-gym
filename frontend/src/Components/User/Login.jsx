@@ -35,7 +35,9 @@ export default class Login extends Component {
 
           <div className={classes.Content}>
             <div className={classes.SubContent}>
-              <h1>LOGIN</h1>
+              <h1 style={{ color: "black", backgroundColor: "#ffcc00" }}>
+                LOGIN
+              </h1>
               <p>We are HAPPY to have you back</p>
             </div>
           </div>

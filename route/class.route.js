@@ -1,21 +1,40 @@
 const router = require("express").Router();
 const Class = require("../models/class.model");
+const Trainer = require("../models/trainer.model");
 const isLoggedIn = require("../config/config");
 
 router.post("/addClass", async (req, res) => {
-    console.log("entering roooute")
-    let { class_title,class_type,trainer,duration,startAt,date,class_titleription,image } = req.body;
+  console.log("entering roooute");
+  let {
+    class_title,
+    class_type,
+    trainer,
+    duration,
+    startAt,
+    date,
+    class_titleription,
+    image,
+  } = req.body;
 
-    console.log(req.body)
-    try {
-      let classObject = new Class({ class_title,class_type,trainer,duration,startAt,date,class_titleription,image });
-      let classSaved = await classObject.save();
-      res.json({ classObject: classSaved }).status(200);
-    } catch (error) {
-        console.log(error)
+  console.log(req.body);
+  try {
+    let classObject = new Class({
+      class_title,
+      class_type,
+      trainer,
+      duration,
+      startAt,
+      date,
+      class_titleription,
+      image,
+    });
+    let classSaved = await classObject.save();
+    res.json({ classObject: classSaved }).status(200);
+  } catch (error) {
+    console.log(error);
 
-      res.status(400).json({ message: "unable to register" });
-    }
+    res.status(400).json({ message: "unable to register" });
+  }
 });
 // router.get("/class/listClass", async (req, res) => {
 //     console.log("inside get ")
@@ -29,26 +48,39 @@ router.post("/addClass", async (req, res) => {
 // })
 
 // /api/class/
-router.get("/listClass",(req, res)=>{
-    Class.find().then(listClass =>{
-        res.json({message:"success", listClass }).status(200);
-    }).catch(error =>{
-        console.log(error)
-        res.json({ message: "unable to list all classes" }).status(400);
+router.get("/listClass", (req, res) => {
+  Class.find()
+    .then((listClass) => {
+      res.json({ message: "success", listClass }).status(200);
     })
-})
-
-// /api/class/
-router.get("/edit/:id", (req, res) => {
-    Class.findById(req.params.id, function (err, resultOneClass) {
-        if (err) {
-            console.log(err);
-            res.send(500, {error: err});
-        }
-        res.json({message:"success", resultOneClass }).status(200);
+    .catch((error) => {
+      console.log(error);
+      res.json({ message: "unable to list all classes" }).status(400);
     });
 });
 
+// /api/class/
+router.get("/edit/:id", (req, res) => {
+  Class.findById(req.params.id, function (err, resultOneClass) {
+    if (err) {
+      console.log(err);
+      res.send(500, { error: err });
+    }
+    res.json({ message: "success", resultOneClass }).status(200);
+  });
+});
+
+// /api/class/
+router.get("/trainers", (req, res) => {
+  Trainer.find()
+    .then((trainer) => {
+      res.json({ message: "success", trainer }).status(200);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.json({ message: "unable to list all trainers" }).status(400);
+    });
+});
 
 // /api/class/
 router.delete("/delete/:id", (req, res) => {
@@ -73,7 +105,6 @@ router.delete("/delete/:id", (req, res) => {
 //         let description = req.body.description;
 //         let image= req.body.image;
 
-
 //         Class.findByIdAndUpdate(req.params.id, {class_title, class_type, trainer,duration,startAt,date,description,image}, function (err, result) {
 
 //             if (err) {
@@ -83,8 +114,6 @@ router.delete("/delete/:id", (req, res) => {
 //             res.json({message:"success Updating"})
 //         });
 //     });
-
-
 
 module.exports = router;
 // // Class Route
