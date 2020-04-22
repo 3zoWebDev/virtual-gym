@@ -110,6 +110,9 @@ export default function Album() {
                     className={classes.cardMedia}
                     image={`${el.image}`}
                     title="Image title"
+                    style={{
+                      height: "100px",
+                    }}
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography

@@ -42,7 +42,6 @@ export default class UpdateProfile extends Component {
             />
           </Form.Group>
 
-
           <Form.Group>
             <Form.Label>Password</Form.Label>
             <Form.Control
@@ -51,7 +50,7 @@ export default class UpdateProfile extends Component {
               onChange={this.changeHandler}
             />
           </Form.Group>
-          <Button variant="primary" onClick={this.update} block>
+          <Button variant="warning" onClick={this.update} block>
             Update
           </Button>
         </Container>

@@ -73,7 +73,7 @@ export default class Signup extends Component {
             />
           </Form.Group>
           <Button variant="info" onClick={this.registerHandler} block>
-            SignUp
+            Sign Up
           </Button>
         </Container>
       </div>
