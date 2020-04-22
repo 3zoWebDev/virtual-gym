@@ -8,10 +8,13 @@ let PORT = process.env.PORT || 5000;
 
 
 mongoose
-  .connect(process.env.MONGODB, {
+  .connect(
+    process.env.MONGODB,
+    {
     useUnifiedTopology: true,
     useNewUrlParser: true,
-  })
+   }
+  )
   .then((res) => console.log("mongodb is connected"))
   .catch((err) => console.log(err));
 
@@ -30,4 +33,15 @@ app.use('/adminbro', require('./admin'))
 app.get("*", (req, res) =>
   res.json({ error: "Are you lost?", status: 404 }).status(404)
 );
+
+
+//create custom var
+//If for production
+if(process.env.NODE_ENV === 'production'){
+
+  app.use(express.static("frontend/bulid"));
+  //console.log("found")
+}
+
+
 app.listen(PORT, () => console.log(`server run on ${PORT}`));
