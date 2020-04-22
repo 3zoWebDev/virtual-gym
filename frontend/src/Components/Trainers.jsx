@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import axios from "axios";
+import image from "../Components/trainer.jpg";
 import { useState, useEffect } from "react";
 
 const useStyles = makeStyles((theme) => ({
@@ -63,27 +64,40 @@ export default function Album() {
       <CssBaseline />
       <main>
         {/* Hero unit */}
-        <div className={classes.heroContent}>
+        <div
+          className={classes.heroContent}
+          style={{
+            backgroundImage: `url(${image})`,
+            backgroundPosition: "center",
+            height: "300px",
+          }}
+        >
           <Container maxWidth="sm">
             <Typography
-              component="h1"
-              variant="h2"
+              component="h3"
+              variant="h3"
               align="center"
-              color="textPrimary"
+              // color="textPrimary"
               gutterBottom
+              style={{
+                color: "black",
+                backgroundColor: "#ffcc00",
+                fontFamily: "Nunito",
+              }}
             >
-              Our Trainers
+              OUR TRAINERS
             </Typography>
-            <Typography
+            {/* <Typography
               variant="h5"
               align="center"
               color="textSecondary"
               paragraph
+              style={{ color: "black", backgroundColor: "#ffcc00" }}
             >
               We choose the best trainers you can ever meet. We promise you you
               will have fun and be fit with each one of them. And here we
               introduce you to the best of the best.
-            </Typography>
+            </Typography> */}
           </Container>
         </div>
         <Container className={classes.cardGrid} maxWidth="md">
@@ -98,10 +112,26 @@ export default function Album() {
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h6" component="h2">
+                    <Typography
+                      gutterBottom
+                      variant="h6"
+                      component="h2"
+                      style={{
+                        fontFamily: "Nunito",
+                        color: "#0099cc",
+                        textAlign: "center",
+                      }}
+                    >
                       {el.name}
                     </Typography>
-                    <Typography>{el.description}</Typography>
+                    <Typography
+                      style={{
+                        fontFamily: "Nunito",
+                        textAlign: "justify",
+                      }}
+                    >
+                      {el.description}
+                    </Typography>
                   </CardContent>
                 </Card>
               </Grid>

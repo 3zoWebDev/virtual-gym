@@ -44,7 +44,9 @@ export default class Signup extends Component {
 
           <div className={classes.Content}>
             <div className={classes.SubContent}>
-              <h1>SIGN-UP</h1>
+              <h1 style={{ color: "black", backgroundColor: "#ffcc00" }}>
+                SIGN-UP
+              </h1>
               <p>We will be HAPPY to have you in our classes</p>
             </div>
           </div>

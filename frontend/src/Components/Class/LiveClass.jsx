@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { NavLink, Link } from "react-router-dom";
+// import ".../App.css";
 
 export default class LiveClass extends Component {
   state = {

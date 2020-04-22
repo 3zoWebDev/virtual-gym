@@ -1,11 +1,9 @@
-
 const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config();
 let PORT = process.env.PORT || 5000;
-
 
 mongoose
   .connect(process.env.MONGODB, {
@@ -26,7 +24,7 @@ app.use("/api/users/", require("./route/user.route"));
 app.use("/api/class", require("./route/class.route"));
 
 //admin
-app.use('/adminbro', require('./admin'))
+app.use("/adminbro", require("./admin"));
 app.get("*", (req, res) =>
   res.json({ error: "Are you lost?", status: 404 }).status(404)
 );
