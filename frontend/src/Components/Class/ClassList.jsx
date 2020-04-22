@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Form, Container, Button,Row ,Col,Image, Card} from "react-bootstrap";
 import ClassCard from './ClassCard'
 import axios from "axios";
+import moment from 'moment'
+
 import KommunicateChat from "../../ChatBot"
 export default class ClassList extends Component {
   state = {
@@ -25,86 +27,27 @@ componentDidMount() {
 
 }
   render() {
+    let dt = new moment()
 
     console.log(this.state.allClass)
-    let All = this.state.allClass.map((classElemnet,i) =>
-       <ClassCard class={classElemnet} id={classElemnet._id} key={i} />
-
-
-    );
-
+    // console.log(this.state.allClass[1].date)
+    // dt.isBefore(moment(this.state.allClass[1].date))
+    let All = this.state.allClass.map((classElemnet,i) =>(
+      dt.isSameOrBefore(moment(classElemnet.date))?
+      <ClassCard class={classElemnet} id={classElemnet._id} key={i} />:null
+      // <ClassCard class={classElemnet} id={classElemnet._id} key={i} />
+    ));
+    
     return (
       <div>
-      <h1>All Classes</h1>
-      <KommunicateChat />
-      {/* {All} */}
-      <Container className="mt-5" fluid>
-          {/* <Row className="mt-5 justify-content-center">
-            <Col md={12}>
-
-            </Col>
-          </Row> */}
-          <Row className="mt-5 justify-content-center">
+      {/* <h1>All Classes</h1> */}
+      <Container className="mt-5" fluid >
+          <Row className="mt-5 justify-content-center" style={{padding:"0"}}>
           {All}
           </Row>
         </Container>
 
-      {/* {this.state.allClass.map((classElemnet) => (
-        <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={classElemnet.image} />
-        <Card.Body>
-          <Card.Title>{classElemnet.class_title}</Card.Title>
-      <Card.Text>{<h4>{classElemnet.trainer}</h4>}</Card.Text>
-
-      <Card.Text><h4>{classElemnet.duration}</h4></Card.Text>
-      <Card.Text><h4>{classElemnet.description}</h4></Card.Text>
-
-          <Button variant="primary">Go somewhere</Button>
-        </Card.Body>
-      </Card>
-        ))}  */}
-      {/* {this.state.allClass.map((classElemnet) => (
-        //  <p>Hello, {classElemnet.class_title} with trainer {classElemnet.trainer}</p>
-        <Container>
-
-        <Row className="mt-5" style={{padding:40}}>
-        <Col md={3} className="m-2" style={{ borderStyle: "double", borderRadius: "30px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-            <Image
-              src={classElemnet.image}
-              style={{ height: "30%", width: "30%" }}
-            />
-          </Col>
-          <Col md={5}>
-            <h4>{classElemnet.class_title}</h4>
-            <h4>{classElemnet.trainer}</h4>
-            <h4>{classElemnet.duration}</h4>
-            <h4>{classElemnet.description}</h4>
-          </Col>
-        </Row>
-      </Container>
-      ))} */}
-
-       {/* <Container className="mt-5" fluid>
-          <Row className="mt-5 justify-content-center">
-            <Col md={4}>
-              <Form.Label>Select Type</Form.Label>
-              <Form.Control>
-                {this.state.allClass.map((classElemnet) => (
-                  <Card.Body>
-                  <Col md={5}>
-                  <h4>{classElemnet.class_title}</h4>
-                  <h4>{classElemnet.trainer}</h4>
-                  <h4>{classElemnet.duration}</h4>
-                  <h4>{classElemnet.description}</h4>
-                </Col>
-                </Card.Body>
-                ))}
-              </Form.Control>
-            </Col>
-          </Row>
-        </Container> */}
-
-  </div >
+     </div >
     )
   }
 }
