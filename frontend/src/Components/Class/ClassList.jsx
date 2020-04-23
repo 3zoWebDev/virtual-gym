@@ -46,7 +46,7 @@ componentDidMount() {
           {All}
           </Row>
         </Container>
-
+        <KommunicateChat />
      </div >
     )
   }
